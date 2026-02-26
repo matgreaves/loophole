@@ -2,9 +2,14 @@
 
 Stable loopback IPs and DNS names for Docker containers on macOS.
 
-Loophole watches Docker for running containers and assigns each one a dedicated
-loopback IP (127.0.0.x) with DNS resolution under `*.loop.test`. Connect to
-`postgres.myapp.loop.test:5432` instead of `localhost:49312`.
+Running multiple projects locally means port collisions — two Postgres containers
+can't both bind to `localhost:5432`. Docker solves this with random host ports,
+but now you're juggling `localhost:49312` and checking `docker ps` every time.
+
+Every problem has a loophole: this one watches for running containers and gives
+each a dedicated loopback IP (127.0.0.x) with DNS under `*.loop.test`. Connect
+to `postgres.myapp.loop.test:5432` — the original port, every time, no
+collisions.
 
 ## Install
 
