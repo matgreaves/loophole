@@ -1,7 +1,5 @@
 # Loophole
 
-Stable loopback IPs and DNS names for Docker containers on macOS.
-
 Running multiple projects locally means port collisions — two Postgres containers
 can't both bind to `localhost:5432`. Docker solves this with random host ports,
 but now you're juggling `localhost:49312` and checking `docker ps` every time.
